@@ -1,0 +1,1 @@
+Used to demonstrate the usage of Mersenne Twister algorithm
