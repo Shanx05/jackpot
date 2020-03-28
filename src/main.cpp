@@ -4,7 +4,7 @@
 #include <ctime>
 #include <chrono>
 #include <unistd.h>
-#include "headers/headerfiles.hpp"
+#include "../headers/headerfiles.hpp"
 
 namespace randGen {
     std::mt19937 mersenne{ static_cast<std::mt19937::result_type>(std::time(nullptr)) };
@@ -29,20 +29,20 @@ int generateRandNum(int min, int max){
             exit(0);
         }
         std::cout<<"\nYou almost had it mate, better luck next time!\n";
-        another_attempt();
+        another_attempt(min, max);
     }
 
     std::cout<<"\nYou were nowhere near winning!\n";
-    another_attempt();
+    another_attempt(min, max);
 }
 
-int another_attempt(){
+int another_attempt(int min, int max){
     char choice; 
 
     std::cout<<"Would you like to play one more time (y/n)?\n";
         std::cin>>choice;
         if(choice == 'y'){
-            generateRandNum(1, 3);
+            generateRandNum(min, max);
         } 
 }
 
@@ -76,5 +76,5 @@ int main(){
                 std::cout<<"Not a valid option\n";
                 break;
     }
-    std::cout<<"Thank you for your participation!";
+    std::cout<<"Thank you for your participation!\n";
 }
